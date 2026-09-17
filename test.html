@@ -2079,7 +2079,8 @@
                     question.options.forEach((option, index) => {
                         const button = document.createElement('button');
                         button.className = 'w-full p-4 rounded-lg text-left option-button';
-                        button.innerHTML = option;
+                        // Bọc trong 1 span: nút là flex, nếu không chữ và công thức KaTeX bị tách thành các cột riêng
+                        button.innerHTML = '<span class="option-text">' + option + '</span>';
                         button.dataset.answer = index;
                         button.onclick = () => selectAnswer(button, true);
                         if (savedAnswer && savedAnswer.answer === index) {
